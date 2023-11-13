@@ -1,0 +1,13 @@
+{
+  "main": "index.js",
+  "scripts":
+  {
+    "buy-market": "node buy-market.js",
+    "buy-market-with-credit": "node buy-market-with-credit.js",
+    "buy-market-with-apikey": "node buy-market-with-credit-and-api-key.js",
+    "buy-fast": "node buy-fast.js"
+  },
+  "dependencies": {
+    "tronweb": "^5.1.0"
+  }
+}
