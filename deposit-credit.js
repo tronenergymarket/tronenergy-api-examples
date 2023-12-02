@@ -13,8 +13,8 @@ const tronWeb =  new TronWeb(
 
 const API_SERVER = "https://api.tronenergy.market";
 const SERVER_ADDRESS = "TEMkRxLtCCdL4BCwbPXbbNWe4a9gtJ7kq7"
-const ORIGIN = tronWeb.defaultAddress.base58;
-const ADDRESS = "TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj"; //
+const ORIGIN = tronWeb.defaultAddress.base58; //sender of the TRX to add the credit.
+const ADDRESS = "TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj"; //destiny of the credit, it can be the same or other address.
 const AMOUNT = 10000000; //amount of TRX to load as credit in sun. Here 20k TRX. Min amount 10 TRX == 10000000
 
 async function DepositCreditTest()
