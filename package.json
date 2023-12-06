@@ -5,6 +5,7 @@
     "buy-market": "node buy-market.js",
     "buy-market-with-credit": "node buy-market-with-credit.js",
     "buy-market-with-apikey": "node buy-market-with-credit-and-api-key.js",
+    "buy-market-bulk": "node buy-market-bulk.js",
     "buy-fast": "node buy-fast.js",
     "deposit-credit": "node deposit-credit.js"
   },

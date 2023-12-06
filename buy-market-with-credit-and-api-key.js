@@ -17,6 +17,7 @@ const AMOUNT = 20000; //energy amount points, min 100000
 const DURATION = 259200; //3 days (check them on https://api.tronenergy.market/info in order > openDurations)
 const PAYMENT = parseInt(((PRICE * AMOUNT * DURATION) / 86400).toFixed(0));
 const PARTFILL = true; //true for allowing several address to fill your order. if false it will force to only be allowed from 1 address
+const BULK = false; //true for creating several orders at once with the same energy, for this working target must be an array of address and payment must be the total of the orders.
 
 async function BuyTest()
 {
@@ -33,6 +34,7 @@ async function BuyTest()
         duration: DURATION,
         price: PRICE,
         partfill: PARTFILL,
+        bulk: BULK,
         signed_ms: undefined,
         signed_tx: undefined,
         api_key: API_KEY
