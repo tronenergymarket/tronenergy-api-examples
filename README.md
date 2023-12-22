@@ -1,16 +1,25 @@
 # tronenergy-api-examples
-Node.js examples for accesing and using tronenergy-api of https://tronenergy.market.
+Node.js / PHP examples for accesing and using tronenergy-api of https://tronenergy.market.
 
 This is the recommended way to access our api because it speed up your knowledge of the api itself.
 
 You can also check yourself the API in [Postman](https://www.postman.com/tronenergy/workspace/tron-energy-market/collection/26095185-f45ab499-afda-4575-bb06-1162fdb453fd?ctx=documentation)
 
-## Installation.
+## Installation (for nodejs).
 
 - You need to have installed npm
 - Execute `npm install`
-- Replace the `PRiVATE_KEY` or other keys undefined.
+- Copy and rename `.env.example` to `.env`.
+- Replace the vars in `.env` with your ones.
 - Test the different scripts : `npm run buy-market`
+
+## Installation (for php).
+
+- You need to have installed php, composer
+- execute `composer install`
+- Copy and rename `.env.example` to `.env`.
+- Replace the vars in `.env` with your ones.
+- Test the different scripts : `composer run-script buy-market-with-apikey`
 
 ## I want some specific example that it's not in the examples.
 

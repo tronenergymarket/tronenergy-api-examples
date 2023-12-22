@@ -1,15 +1,17 @@
 {
   "main": "index.js",
-  "scripts":
-  {
-    "buy-market": "node buy-market.js",
-    "buy-market-with-credit": "node buy-market-with-credit.js",
-    "buy-market-with-apikey": "node buy-market-with-credit-and-api-key.js",
-    "buy-market-bulk": "node buy-market-bulk.js",
-    "buy-fast": "node buy-fast.js",
-    "deposit-credit": "node deposit-credit.js"
+  "scripts": {
+    "buy-market": "node ./nodejs/buy-market.js",
+    "buy-market-with-credit": "node ./nodejs/buy-market-with-credit.js",
+    "buy-market-with-apikey": "node ./nodejs/buy-market-with-credit-and-api-key.js",
+    "buy-market-bulk": "node ./nodejs/buy-market-bulk.js",
+    "buy-fast": "node ./nodejs/buy-fast.js",
+    "deposit-credit": "node ./nodejs/deposit-credit.js"
   },
   "dependencies": {
     "tronweb": "^5.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
   }
 }

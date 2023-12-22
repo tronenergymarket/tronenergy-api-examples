@@ -1,8 +1,10 @@
+require('dotenv').config(); //to load .env file : rename .env.example to .env and put there your PK to test.
+
 const axios = require('axios');
 const TronWeb = require('tronweb');
 
-const TRON_NODE = "https://api.trongrid.io/"; //https://api.nileex.io/ https://api.trongrid.io/
-const PRIVATE_KEY = "YOU_PRIVATE_KEY";
+const TRON_NODE = process.env.TRON_NODE; //https://api.nileex.io/ https://api.trongrid.io/
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 const tronWeb =  new TronWeb(
     new TronWeb.providers.HttpProvider( TRON_NODE ),
@@ -10,8 +12,8 @@ const tronWeb =  new TronWeb(
     TRON_NODE,
     PRIVATE_KEY //this should match origin address
 );
-const API_SERVER = "https://api.tronenergy.market"; //http://192.168.1.136:16743 https://api.tronenergy.market
-const SERVER_ADDRESS = "TEMkRxLtCCdL4BCwbPXbbNWe4a9gtJ7kq7" //TEMdSN6xEeFBfAK9o81gbqfmVnP6pYkQZc TEMkRxLtCCdL4BCwbPXbbNWe4a9gtJ7kq7
+const API_SERVER = process.env.API_SERVER; //http://192.168.1.136:16743 https://api.tronenergy.market
+const SERVER_ADDRESS = process.env.SERVER_ADDRESS //TEMdSN6xEeFBfAK9o81gbqfmVnP6pYkQZc TEMkRxLtCCdL4BCwbPXbbNWe4a9gtJ7kq7
 const MARKET = 'Fast';
 const ORIGIN = tronWeb.defaultAddress.base58;
 const TARGET = "TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj";
@@ -24,8 +26,7 @@ const RESOURCE = 0; //0 energy, 1 bandwidth
 const PRICE = 120; 
 const AMOUNT = 32000; //energy amount points, min 20000
 const DURATION = 3600; //3 days (check them on https://api.tronenergy.market/info in order > fastDurations)
-const PAYMENT = parseInt(((PRICE * AMOUNT * (DURATION + (DURATION < 86400) ? 86400 : 0)) / 86400).toFixed(0));//we need to increment 1 day of duration per orders smaller than 24 hours / 86400 seconds
-PAYMENT += (AMOUNT * PRICE); // recovery time
+const PAYMENT = parseInt(((PRICE * AMOUNT * (DURATION + ((DURATION < 86400) ? 86400 : 0))) / 86400).toFixed(0));//we need to increment 1 day of duration per orders smaller than 24 hours / 86400 seconds
 const PARTFILL = true; //true for allowing several address to fill your order. if false it will force to only be allowed from 1 address
 
 const signed_ms = undefined;//not used right now, only for credits

@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "buy-market-with-apikey" : "php ./php/buy-market-with-credit-and-api-key.php"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "guzzlehttp/guzzle": "^7.8"
+    }
+}
