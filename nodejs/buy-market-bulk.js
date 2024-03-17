@@ -3,7 +3,7 @@ require('dotenv').config(); //to load .env file : rename .env.example to .env an
 const axios = require('axios');
 const TronWeb = require('tronweb');
 
-const TRON_NODE = "https://api.nileex.io"; //https://api.nileex.io https://api.trongrid.io/
+const TRON_NODE = process.env.TRON_NODE; //https://api.nileex.io/ https://api.trongrid.io/
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 const tronWeb =  new TronWeb(
