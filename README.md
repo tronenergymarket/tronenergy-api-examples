@@ -21,6 +21,13 @@ You can also check yourself the API in [Postman](https://www.postman.com/tronene
 - Replace the vars in `.env` with your ones.
 - Test the different scripts : `composer run-script buy-market-with-apikey`
 
+## Installation (for python)
+- You need to have installed python, pip
+- execute `pip install -r requirements.txt`
+- Copy and rename `.env.example` to `.env`.
+- Replace the vars in `.env` with your ones.
+- Test the different scripts : `python ./python/buy-market-with-credit-and-api-key.py`
+
 ## I want some specific example that it's not in the examples.
 
 Please submit an issue requesting the example you need with all details needed and we'll update the repository with the example asap.
