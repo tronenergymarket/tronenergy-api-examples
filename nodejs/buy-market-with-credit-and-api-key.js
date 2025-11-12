@@ -9,12 +9,10 @@ const MARKET = 'Open';
 const ORIGIN = process.env.ADDRESS;
 const TARGET = "TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj";
 const RESOURCE = 0; //0 energy, 1 bandwidth
-//suns per day, each duration has it's own price: (check them on https://api.tronenergy.market/info in price > fastEnergy)
-//  >= 86400 = 70 sun
-//  >= 259200 = 35 sun
+//suns per day, each duration has it's own price: (check them on https://api.tronenergy.market/info in price > open)
 const PRICE = 50; //suns per day, whatever price you want
-const AMOUNT = 20000; //energy amount points, min 100000
-const DURATION = 259200; //3 days (check them on https://api.tronenergy.market/info in order > openDurations)
+const AMOUNT = 64500; //energy amount points, min 100000
+const DURATION = 300; //300 = 5 minutes (check them on https://api.tronenergy.market/info in order > openDurations)
 const PAYMENT = parseInt(((PRICE * AMOUNT * (DURATION + ((DURATION < 86400) ? 86400 : 0))) / 86400).toFixed(0));//we need to increment 1 day of duration per orders smaller than 24 hours / 86400 seconds
 const PARTFILL = true; //true for allowing several address to fill your order. if false it will force to only be allowed from 1 address
 const BULK = false; //true for creating several orders at once with the same energy, for this working target must be an array of address and payment must be the total of the orders.
@@ -37,7 +35,7 @@ async function BuyTest()
         bulk: BULK,
         signed_ms: undefined,
         signed_tx: undefined,
-        api_key: API_KEY
+        api_key: API_KEY,
     }
     console.log(params);
     const POST_URL = `${API_SERVER}/order/new`;
@@ -50,7 +48,6 @@ async function BuyTest()
     .catch((error) =>
     {
         console.error("woops, something wrong happened!");
-        console.error(error);
     });
 }
 
