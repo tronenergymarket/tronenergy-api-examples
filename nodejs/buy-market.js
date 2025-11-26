@@ -19,7 +19,7 @@ const MARKET = 'Open';
 const ORIGIN = tronWeb.defaultAddress.base58;
 const TARGET = "TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj";
 const RESOURCE = 0; //0 energy, 1 bandwidth
-const PRICE = 20; //suns per day, whatever price you want
+const PRICE = 50; //suns per day, whatever price you want
 const AMOUNT = 20000; //energy amount points, min 100000
 const DURATION = 300; //Duration in seconds. 300 (5 minutes), 600, 900, 1800, ... 2590000 (30 days)
 const PAYMENT = parseInt(((PRICE * AMOUNT * (DURATION + ((DURATION < 86400) ? 86400 : 0))) / 86400).toFixed(0));//we need to increment 1 day of duration per orders smaller than 24 hours / 86400 seconds
@@ -35,14 +35,14 @@ async function BuyTest()
     //we sign the tx
     const raw_tx  = await tronWeb.transactionBuilder.sendTrx(SERVER_ADDRESS, PAYMENT , ORIGIN);
     const signed_tx = await tronWeb.trx.sign( raw_tx );
-    console.log(signed_tx);
+    
     //we send the order
     let params = 
     {
         market: MARKET,
         address: ORIGIN,
         target: TARGET,
-        payment: PAYMENT,
+        amount: AMOUNT,
         resource: RESOURCE,
         duration: DURATION,
         price: PRICE,
@@ -53,7 +53,7 @@ async function BuyTest()
         instant: INSTANT,
         listed: LISTED
     }
-    console.log(params);
+
     const POST_URL = `${API_SERVER}/order/new`;
     axios.post(POST_URL, params,)
     .then((res)=>

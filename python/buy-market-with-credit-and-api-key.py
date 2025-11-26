@@ -29,7 +29,7 @@ def buy_test():
         'market': MARKET,
         'address': ORIGIN,
         'target': TARGET,
-        'payment': PAYMENT,
+        'amount': AMOUNT,
         'resource': RESOURCE,
         'duration': DURATION,
         'price': PRICE,

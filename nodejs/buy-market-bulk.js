@@ -21,7 +21,7 @@ const TARGET = ["TAtPNH8sNWHJXFaZPAQJu9fMasGZMTnbnj", "TXyYbRRkixvU3YYDvmt4seDRN
 const RESOURCE = 0; //0 energy, 1 bandwidth
 const PRICE = 50; //suns per day, whatever price you want
 const AMOUNT = 20000; //energy amount points, min 100000
-const DURATION = 259200; //3 days (it's only allowed 3 days right now)
+const DURATION = 300; //300 = 5 minutes (check them on https://api.tronenergy.market/info in order > openDurations)
 const PAYMENT = parseInt(((PRICE * AMOUNT * (DURATION + ((DURATION < 86400) ? 86400 : 0))) / 86400).toFixed(0));//we need to increment 1 day of duration per orders smaller than 24 hours / 86400 seconds
 const PARTFILL = true; //true for allowing several address to fill your order. if false it will force to only be allowed from 1 address
 const BULK = true; //true for creating several orders at once with the same energy, for this working target must be an array of address and payment must be the total of the orders.
@@ -40,7 +40,7 @@ async function BuyTest()
         market: MARKET,
         address: ORIGIN,
         target: TARGET,
-        payment: PAYMENT,
+        amount: AMOUNT,
         resource: RESOURCE,
         duration: DURATION,
         price: PRICE,
